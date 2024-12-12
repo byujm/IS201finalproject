@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddle Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    h1 {
+      color: #0078D7;
+    }
+
+    .riddle-box {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0078D7;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #005A9E;
+    }
+
+    .answer {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Riddle Generator</h1>
+  <div class="riddle-box">
+    <p id="riddle">Click the button to generate a riddle!</p>
+    <button onclick="generateRiddle()">Get a Riddle</button>
+    <p class="answer" id="answer" style="display: none;"></p>
+  </div>
+
+  <script>
+    const riddles = [
+      {
+        question: "What has to be broken before you can use it?",
+        answer: "An egg."
+      },
+      {
+        question: "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+        answer: "A candle."
+      },
+      {
+        question: "What month of the year has 28 days?",
+        answer: "All of them."
+      },
+      {
+        question: "What is full of holes but still holds water?",
+        answer: "A sponge."
+      },
+      {
+        question: "What question can you never answer yes to?",
+        answer: "Are you asleep yet?"
+      }
+    ];
+
+    function generateRiddle() {
+      const randomIndex = Math.floor(Math.random() * riddles.length);
+      const selectedRiddle = riddles[randomIndex];
+
+      document.getElementById("riddle").innerText = selectedRiddle.question;
+      const answerElement = document.getElementById("answer");
+      answerElement.innerText = "Click to reveal the answer!";
+      answerElement.style.display = "block";
+      answerElement.onclick = function () {
+        answerElement.innerText = selectedRiddle.answer;
+      };
+    }
+  </script>
+
+<div class="small text-center text-muted fst-italic">Copyright &copy; Juan Morales 2025</div>
+</body>
+</html>
